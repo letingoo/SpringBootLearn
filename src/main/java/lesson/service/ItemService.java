@@ -13,4 +13,9 @@ public class ItemService {
 
 
 
+
+    public ItemMapper getItemById(int itemId) {
+        return itemMapper;
+    }
+
 }
