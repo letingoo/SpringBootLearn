@@ -12,10 +12,15 @@ public class ItemService {
     private ItemMapper itemMapper;
 
 
-
-
     public Item getItemById(int itemId) {
         return itemMapper.getItemById(itemId);
+    }
+
+
+
+    public String buyItems(int itemId, int number) {
+        itemMapper.decreaseItem(itemId, number);
+        return "1";
     }
 
 }

@@ -5,6 +5,7 @@ import lesson.entity.Item;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface ItemMapper {
@@ -14,5 +15,6 @@ public interface ItemMapper {
     Item getItemById(@Param("itemID") int itemId);
 
 
-    Item increaseItem(@Param("itemID") int itemId, int number);
+    @Update("update item set number = number - #{decreaseNumber}")
+    void decreaseItem(@Param("itemID") int itemId, @Param("decreaseNumber") int number);
 }
